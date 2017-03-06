@@ -42,7 +42,7 @@ class GenusController extends Controller
 
         return new Response(sprintf(
             '<html><body>Genus created! <a href="%s">%s</a></body></html>',
-            $this->generateUrl('genus_show', ['genusName' => $genus->getName()]),
+            $this->generateUrl('genus_show', ['slug' => $genus->getSlug()]),
             $genus->getName()
         ));
     }
