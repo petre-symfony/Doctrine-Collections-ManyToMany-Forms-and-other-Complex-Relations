@@ -22,6 +22,7 @@ class Genus
 
     /**
      * @ORM\Column(type="string", unique=true)
+     * @Gedmo\Slug(fields={"name"})
      */
     private $slug;
     
