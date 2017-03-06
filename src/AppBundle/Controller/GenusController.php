@@ -30,6 +30,7 @@ class GenusController extends Controller
         $genus->setFirstDiscoveredAt(new \DateTime('50 years'));
 
         $user = $em->getRepository('AppBundle:User')->findOneBy(['email' => 'aquanaut1@example.org']);
+        $genus->addGenusScientist($user);
         
         $genusNote = new GenusNote();
         $genusNote->setUsername('AquaWeaver');
