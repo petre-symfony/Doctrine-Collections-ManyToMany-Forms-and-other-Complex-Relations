@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
+use AppBundle\Entity\User;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\GenusRepository")
@@ -195,4 +196,7 @@ class Genus
         $this->notes->removeElement($note);
     }
     
+    public function addGenusScientist(User $user){
+      $this->genusScientists[] = $user;
+    }
 }
