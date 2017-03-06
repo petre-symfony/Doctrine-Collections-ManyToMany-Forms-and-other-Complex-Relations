@@ -67,6 +67,8 @@ class Genus
      * @ORM\OrderBy({"createdAt" = "DESC"})
      */
     private $notes;
+    
+    private $genusScientists;
 
     public function __construct()
     {
