@@ -20,6 +20,11 @@ class Genus
     private $id;
 
     /**
+     * @ORM\Column(type="string", unique=true)
+     */
+    private $slug;
+    
+    /**
      * @Assert\NotBlank()
      * @ORM\Column(type="string")
      */
@@ -145,5 +150,29 @@ class Genus
     public function setFirstDiscoveredAt(\DateTime $firstDiscoveredAt = null)
     {
         $this->firstDiscoveredAt = $firstDiscoveredAt;
+    }
+
+    /**
+     * Add note
+     *
+     * @param \AppBundle\Entity\GenusNote $note
+     *
+     * @return Genus
+     */
+    public function addNote(\AppBundle\Entity\GenusNote $note)
+    {
+        $this->notes[] = $note;
+
+        return $this;
+    }
+
+    /**
+     * Remove note
+     *
+     * @param \AppBundle\Entity\GenusNote $note
+     */
+    public function removeNote(\AppBundle\Entity\GenusNote $note)
+    {
+        $this->notes->removeElement($note);
     }
 }
