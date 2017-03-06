@@ -133,15 +133,6 @@ class Genus
     {
         return $this->isPublished;
     }
-    
-    public function getSlug()
-    {
-        return $this->slug;
-    }
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-    }
 
     /**
      * @return ArrayCollection|GenusNote[]
@@ -184,5 +175,4 @@ class Genus
     {
         $this->notes->removeElement($note);
     }
-    
 }
