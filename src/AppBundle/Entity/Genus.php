@@ -71,6 +71,7 @@ class Genus
     /**
      *
      * @ORM\ManyToMany(targetEntity="User")
+     * @ORM\JoinTable(name="genus_scientist")
      */
     private $genusScientists;
 
