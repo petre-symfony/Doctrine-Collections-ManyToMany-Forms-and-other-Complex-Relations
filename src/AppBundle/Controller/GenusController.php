@@ -63,24 +63,18 @@ class GenusController extends Controller
     }
 
     /**
-     * @Route("/genus/{genusName}", name="genus_show")
+     * @Route("/genus/{slug}", name="genus_show")
      */
-    public function showAction($genusName)
+    public function showAction(Genus $genus)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $genus = $em->getRepository('AppBundle:Genus')
-            ->findOneBy(['name' => $genusName]);
-
-        if (!$genus) {
-            throw $this->createNotFoundException('genus not found');
-        }
 
         $markdownTransformer = $this->get('app.markdown_transformer');
         $funFact = $markdownTransformer->parse($genus->getFunFact());
 
         $this->get('logger')
-            ->info('Showing genus: '.$genusName);
+            ->info('Showing genus: '.$genus->getName());
 
         $recentNotes = $em->getRepository('AppBundle:GenusNote')
             ->findAllRecentNotesForGenus($genus);
