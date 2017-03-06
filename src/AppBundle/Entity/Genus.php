@@ -68,6 +68,10 @@ class Genus
      */
     private $notes;
     
+    /**
+     *
+     * @ORM\ManyToMany(targetEntity="User")
+     */
     private $genusScientists;
 
     public function __construct()
