@@ -29,6 +29,8 @@ class GenusController extends Controller
         $genus->setSpeciesCount(rand(100, 99999));
         $genus->setFirstDiscoveredAt(new \DateTime('50 years'));
 
+        $user = $em->getRepository('AppBundle:User')->findOneBy(['email' => 'aquanaut1@example.org']);
+        
         $genusNote = new GenusNote();
         $genusNote->setUsername('AquaWeaver');
         $genusNote->setUserAvatarFilename('ryan.jpeg');
