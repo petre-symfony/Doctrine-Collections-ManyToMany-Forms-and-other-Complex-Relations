@@ -31,7 +31,6 @@ class GenusController extends Controller
 
         $user = $em->getRepository('AppBundle:User')->findOneBy(['email' => 'aquanaut1@example.org']);
         $genus->addGenusScientist($user);
-        $genus->addGenusScientist($user); //duplicate is ignored
         
         $genusNote = new GenusNote();
         $genusNote->setUsername('AquaWeaver');

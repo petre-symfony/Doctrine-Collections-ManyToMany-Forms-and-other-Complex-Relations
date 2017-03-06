@@ -197,6 +197,10 @@ class Genus
     }
     
     public function addGenusScientist(User $user){
+      if($this->genusScientists->contains($user)){
+        return;
+      }
+      
       $this->genusScientists[] = $user;
     }
 }
