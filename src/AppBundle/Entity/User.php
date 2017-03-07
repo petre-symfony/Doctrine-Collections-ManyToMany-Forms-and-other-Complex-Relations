@@ -68,6 +68,12 @@ class User implements UserInterface
      * @ORM\Column(type="string", nullable=true)
      */
     private $avatarUri;
+    
+    /**
+     *
+     * @ORM\ManyToMany(targetEntity="Genus", mappedBy="genusScientists")
+     */
+    private $studiedGenuses;
 
     /**
      * @ORM\Column(type="string", nullable=true)
