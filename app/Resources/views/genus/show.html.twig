@@ -70,6 +70,13 @@
             .removeClass('fa-close')
             .addClass('fa-spinner')
             .addClass('fa-spin');
+    
+          $.ajax({
+            url: $(this).data('url'),
+            method: 'DELETE'
+          }).done(function() {
+            $el.fadeOut();
+          });  
         });
       });
     </script>
