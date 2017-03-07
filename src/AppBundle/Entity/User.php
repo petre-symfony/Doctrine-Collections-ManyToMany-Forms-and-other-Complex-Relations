@@ -210,4 +210,11 @@ class User implements UserInterface
     {
         return trim($this->getFirstName().' '.$this->getLastName());
     }
+    
+    /*
+     * @return ArrayCollection|Genus[]
+     */
+    public function getStudiedGenuses() {
+      return $this->studiedGenuses;
+    }
 }
