@@ -136,5 +136,7 @@ class GenusController extends Controller
       
       $em->persist($genus);
       $em->flush();
+      
+      return new Response(null, 204);
     }
 }
