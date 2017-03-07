@@ -7,6 +7,7 @@ use Symfony\Component\Security\Core\Role\Role;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
@@ -74,6 +75,10 @@ class User implements UserInterface
      * @ORM\ManyToMany(targetEntity="Genus", mappedBy="genusScientists")
      */
     private $studiedGenuses;
+    
+    public function __construct() {
+      $this->studiedGenuses = new ArrayCollection();
+    }
 
     /**
      * @ORM\Column(type="string", nullable=true)
