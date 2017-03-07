@@ -73,6 +73,7 @@ class User implements UserInterface
     /**
      *
      * @ORM\ManyToMany(targetEntity="Genus", mappedBy="genusScientists")
+     * @ORM\OrderBy({"name"="ASC"})
      */
     private $studiedGenuses;
     
