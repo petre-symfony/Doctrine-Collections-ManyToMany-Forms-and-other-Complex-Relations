@@ -131,5 +131,10 @@ class GenusController extends Controller
       if(!$genusScientist){
         throw $this->createNotFoundException('scientist not found');
       }
+      
+      $genus->removeGenusScientist($genusScientist);
+      
+      $em->persist($genus);
+      $em->flush();
     }
 }
