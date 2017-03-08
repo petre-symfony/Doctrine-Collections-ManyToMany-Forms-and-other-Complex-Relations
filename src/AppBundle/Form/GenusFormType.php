@@ -47,7 +47,7 @@ class GenusFormType extends AbstractType
               'class' => User::class,
               'multiple' => true,
               'expanded' => true,
-              'choice_label' => 'email'  
+              'choice_label' => 'email'
             ])        
         ;
     }
