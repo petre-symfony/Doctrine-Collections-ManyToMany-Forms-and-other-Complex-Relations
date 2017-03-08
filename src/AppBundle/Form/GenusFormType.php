@@ -46,7 +46,8 @@ class GenusFormType extends AbstractType
             ->add('genusScientists', EntityType::class, [
               'class' => User::class,
               'multiple' => true,
-              'expanded' => true  
+              'expanded' => true,
+              'choice_label' => 'email'  
             ])        
         ;
     }
