@@ -4,6 +4,8 @@ namespace AppBundle\Form;
 
 use AppBundle\Entity\SubFamily;
 use AppBundle\Repository\SubFamilyRepository;
+use AppBundle\Entity\User;
+use AppBundle\Repository\UserRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
