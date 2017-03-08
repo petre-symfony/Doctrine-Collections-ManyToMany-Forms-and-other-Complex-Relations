@@ -18,14 +18,14 @@ class GenusScientist{
   
   /**
   *
-  * @ORM\ManyToMany(targetEntity="Genus")
+  * @ORM\ManyToOne(targetEntity="Genus")
   * @ORM\JoinColumn(nullable=false)
   */
   private $genus;
   
   /**
   *
-  * @ORM\ManyToMany(targetEntity="User")
+  * @ORM\ManyToOne(targetEntity="User")
   * @ORM\JoinColumn(nullable=false)
   */
   private $user;
