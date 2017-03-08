@@ -230,6 +230,7 @@ class User implements UserInterface
     
     public function removeStudiedGenus(Genus $genus){
       $this->studiedGenuses->removeElement($genus);
+      
       $genus->removeGenusScientist($this);
     }
 }

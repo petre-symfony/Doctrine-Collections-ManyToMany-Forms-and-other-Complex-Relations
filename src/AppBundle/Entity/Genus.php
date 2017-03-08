@@ -202,10 +202,14 @@ class Genus
       }
       
       $this->genusScientists[] = $user;
+      //not needed for persistence, just keeping both sides in sync
+      $user->addStudiedGenus($this);
     }
     
     public function removeGenusScientist(User $user) {
       $this->genusScientists->removeElement($user);
+      //not needed for persistence, just keeping both sides in sync
+      $user->removeStudiedGenus($this);
     }
     
     /**
