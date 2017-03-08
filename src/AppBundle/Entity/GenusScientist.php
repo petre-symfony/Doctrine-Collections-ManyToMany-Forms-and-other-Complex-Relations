@@ -33,4 +33,86 @@ class GenusScientist{
   * @ORM\Column(type="string")
   */
   private $yearsStudied;
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set yearsStudied
+     *
+     * @param string $yearsStudied
+     *
+     * @return GenusScientist
+     */
+    public function setYearsStudied($yearsStudied)
+    {
+        $this->yearsStudied = $yearsStudied;
+
+        return $this;
+    }
+
+    /**
+     * Get yearsStudied
+     *
+     * @return string
+     */
+    public function getYearsStudied()
+    {
+        return $this->yearsStudied;
+    }
+
+    /**
+     * Set genus
+     *
+     * @param \AppBundle\Entity\Genus $genus
+     *
+     * @return GenusScientist
+     */
+    public function setGenus(\AppBundle\Entity\Genus $genus)
+    {
+        $this->genus = $genus;
+
+        return $this;
+    }
+
+    /**
+     * Get genus
+     *
+     * @return \AppBundle\Entity\Genus
+     */
+    public function getGenus()
+    {
+        return $this->genus;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return GenusScientist
+     */
+    public function setUser(\AppBundle\Entity\User $user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }
