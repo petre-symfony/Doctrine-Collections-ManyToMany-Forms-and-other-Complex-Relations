@@ -41,6 +41,11 @@ class GenusFormType extends AbstractType
                 'attr' => ['class' => 'js-datepicker'],
                 'html5' => false,
             ])
+            ->add('genusScientists', EntityType::class, [
+              'class' => User::class,
+              'multiple' => true,
+              'expanded' => true  
+            ])        
         ;
     }
 
