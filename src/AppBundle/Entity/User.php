@@ -218,4 +218,16 @@ class User implements UserInterface
     public function getStudiedGenuses() {
       return $this->studiedGenuses;
     }
+    
+    public function addStudiedGenus(Genus $genus) {
+      if($this->studiedGenuses->contains($genus)){
+        return;
+      }
+      
+      $this->studiedGenuses[]=$genus;
+    }
+    
+    public function removeStudiedGenus(Genus $genus){
+      $this->studiedGenuses->removeElement($genus);
+    }
 }
