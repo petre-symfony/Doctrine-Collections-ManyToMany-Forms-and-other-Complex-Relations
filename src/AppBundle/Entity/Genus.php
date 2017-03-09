@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
 use AppBundle\Entity\User;
+use AppBundle\Entity\GenusScientist;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\GenusRepository")
