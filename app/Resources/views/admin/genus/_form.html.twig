@@ -24,7 +24,9 @@
     <div class="row">
       {% for genusScientistForm in genusForm.genusScientists %}
         <div class="col-xs-4">
-          {{ form_row(genusScientistForm) }}
+          {{ form_errors(genusScientistForm) }}
+          {{ form_row(genusScientistForm.user) }}
+          {{ form_row(genusScientistForm.yearsStudied) }}
         </div>
       {% endfor %}  
     </div>
