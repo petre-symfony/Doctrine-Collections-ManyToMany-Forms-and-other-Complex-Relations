@@ -72,7 +72,7 @@ class Genus
     
     /**
      *
-     * @ORM\OneToMany(targetEntity="GenusScientist", mappedBy="genus", fetch="EXTRA_LAZY")
+     * @ORM\OneToMany(targetEntity="GenusScientist", mappedBy="genus", fetch="EXTRA_LAZY", orphanRemoval=true)
      */
     private $genusScientists;
 
