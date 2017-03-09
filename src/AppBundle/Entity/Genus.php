@@ -217,7 +217,7 @@ class Genus
     
     /**
      * 
-     * @return ArrayCollection|User[]
+     * @return ArrayCollection|GenusScientist[]
      */
     public function getGenusScientists() {
       return $this->genusScientists;
