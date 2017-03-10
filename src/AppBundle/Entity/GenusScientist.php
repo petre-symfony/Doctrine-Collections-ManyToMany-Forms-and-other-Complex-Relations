@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity()
@@ -31,6 +32,7 @@ class GenusScientist{
   private $user;
   /**
   * @ORM\Column(type="string")
+   *@Assert\NotBlank() 
   */
   private $yearsStudied;
 
