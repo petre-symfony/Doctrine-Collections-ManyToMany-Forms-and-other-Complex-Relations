@@ -1,4 +1,12 @@
 {% macro printGenusScientistRow(genusScientistForm) %}
+  <div class="col-xs-4 js-genus-scientist-item">
+    <a href="#" class="js-remove-scientist pull-right">
+      <span class="fa fa-close"></span>
+    </a>
+    {{ form_errors(genusScientistForm) }}
+    {{ form_row(genusScientistForm.user) }}
+    {{ form_row(genusScientistForm.yearsStudied) }}
+  </div>
 {% endmacro %}  
 {{ form_start(genusForm) }}
     {{ form_errors(genusForm) }}
@@ -28,14 +36,7 @@
       data-index = "{{ genusForm.genusScientists|length }}"     
     >
       {% for genusScientistForm in genusForm.genusScientists %}
-        <div class="col-xs-4 js-genus-scientist-item">
-          <a href="#" class="js-remove-scientist pull-right">
-            <span class="fa fa-close"></span>
-          </a>
-          {{ form_errors(genusScientistForm) }}
-          {{ form_row(genusScientistForm.user) }}
-          {{ form_row(genusScientistForm.yearsStudied) }}
-        </div>
+        
       {% endfor %}  
       
       <a href="#" class="js-genus-scientist-add">
