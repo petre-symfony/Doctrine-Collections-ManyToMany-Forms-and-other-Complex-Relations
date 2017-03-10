@@ -10,7 +10,11 @@
         e.preventDefault();
         
         $(this).closest('.js-genus-scientist-item').fadeOut().remove();
-      })
+      });
+      
+      $wrapper.on('click', '.js-genus-scientist-add', function(e){
+        e.preventDefault();
+      });
     });
   </script>
 {% endblock %}
