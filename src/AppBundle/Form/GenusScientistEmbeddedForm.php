@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormEvents;
+use Symfony\Component\Form\FormEvent;
 use AppBundle\Entity\GenusScientist;
 use AppBundle\Entity\User;
 use AppBundle\Repository\UserRepository;
@@ -25,6 +26,12 @@ class GenusScientistEmbeddedForm extends AbstractType{
       ->addEventListener(FormEvents::POST_SET_DATA, array($this, 'onPostSetData'));
   }
   
+  public function onPostSetData(FormEvent $event) {
+    if ($event->getData() && $event->getData()->getId()){
+      $form = $event->getForm();
+      unset($form['user']);
+    }
+  }
   
   public function configureOptions(OptionsResolver $resolver) {
     $resolver->setDefaults([
