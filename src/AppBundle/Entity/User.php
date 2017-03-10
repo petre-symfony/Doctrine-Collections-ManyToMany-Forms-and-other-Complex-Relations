@@ -7,6 +7,8 @@ use Symfony\Component\Security\Core\Role\Role;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
+use AppBundle\Entity\GenusScientist;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
@@ -68,6 +70,16 @@ class User implements UserInterface
      * @ORM\Column(type="string", nullable=true)
      */
     private $avatarUri;
+    
+    /**
+     *
+     * @ORM\OneToMany(targetEntity="GenusScientist", mappedBy="user")
+     */
+    private $studiedGenuses;
+    
+    public function __construct() {
+      $this->studiedGenuses = new ArrayCollection();
+    }
 
     /**
      * @ORM\Column(type="string", nullable=true)
@@ -198,5 +210,31 @@ class User implements UserInterface
     public function getFullName()
     {
         return trim($this->getFirstName().' '.$this->getLastName());
+    }
+    
+    /*
+     * @return ArrayCollection|GenusScientist[]
+     */
+    public function getStudiedGenuses() {
+      return $this->studiedGenuses;
+    }
+    
+    public function addStudiedGenus(Genus $genus) {
+      if($this->studiedGenuses->contains($genus)){
+        return;
+      }
+      
+      $this->studiedGenuses[]=$genus;
+      $genus->addGenusScientist($this);
+    }
+    
+    public function removeStudiedGenus(Genus $genus){
+      if(!$this->studiedGenuses->contains($genus)){
+        return;
+      }
+      
+      $this->studiedGenuses->removeElement($genus);
+      
+      $genus->removeGenusScientist($this);
     }
 }
