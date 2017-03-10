@@ -207,6 +207,8 @@ class Genus
       }
       
       $this->genusScientists[] = $genusScientist;
+      //needed to update the owning side of the relationship
+      $genusScientist->setGenus($this);
       
     }
     
