@@ -196,14 +196,13 @@ class Genus
         $this->notes->removeElement($note);
     }
     
-    public function addGenusScientist(User $user){
-      if($this->genusScientists->contains($user)){
+    public function addGenusScientist(GenusScientist $genusScientist){
+      if($this->genusScientists->contains($genusScientist)){
         return;
       }
       
-      $this->genusScientists[] = $user;
-      //not needed for persistence, just keeping both sides in sync
-      $user->addStudiedGenus($this);
+      $this->genusScientists[] = $genusScientist;
+      
     }
     
     public function removeGenusScientist(GenusScientist $genusScientist) {
