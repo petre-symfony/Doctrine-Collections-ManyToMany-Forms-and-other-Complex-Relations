@@ -29,4 +29,11 @@ class GenusRepository extends EntityRepository
         ->andWhere(Criteria::expr()->gt('yearsStudied', 20))
         ->orderBy(['yearsStudied', 'DESC']);
     }
+    
+    public function findAllExperts(){
+      return $this->createQueryBuilder('genus')
+        ->addCriteria(self::createExpertsCriteria())
+        ->getQuery()
+        ->execute();
+    }
 }
