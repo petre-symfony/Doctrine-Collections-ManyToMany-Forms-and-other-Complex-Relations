@@ -4,6 +4,7 @@ namespace AppBundle\Repository;
 
 use AppBundle\Entity\Genus;
 use Doctrine\ORM\EntityRepository;
+use Doctrine\Common\Collections\Criteria;
 
 class GenusRepository extends EntityRepository
 {
@@ -21,5 +22,11 @@ class GenusRepository extends EntityRepository
 //            ->addSelect('genusScientist')
             ->getQuery()
             ->execute();
+    }
+    
+    public static function createExpertsCriteria(){
+      return Criteria::create()
+        ->andWhere(Criteria::expr()->gt('yearsStudied', 20))
+        ->orderBy(['yearsStudied', 'DESC']);
     }
 }
