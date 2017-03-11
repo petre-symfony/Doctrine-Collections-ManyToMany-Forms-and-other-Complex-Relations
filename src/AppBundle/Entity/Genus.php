@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Doctrine\Common\Collections\Criteria;
 use AppBundle\Entity\User;
 use AppBundle\Entity\GenusScientist;
 
@@ -233,8 +234,10 @@ class Genus
     }
     
     public function getExpertScientists() {
-      return $this->getGenusScientists()->filter(function(GenusScientist $genusScientist){
-        return $genusScientist->getYearsStudied() > 20;
-      });
+      $criteria = Criteria::create()
+        ->andWhere(Criteria::expr()->gt('yearsStudied', 20))
+        ->orderBy(['yearsStudied', 'DESC']);
+      
+      return $this->getGenusScientists()->matching($criteria);
     }
 }
